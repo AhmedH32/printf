@@ -16,7 +16,7 @@ void choosefn(va_list ap, char *buffer, int *chrcount,
 	switch (format[*i])
 	{
 		case 'c':
-			printc(buffer, va_arg(ap, int), chrcount);
+			printc(ap, buffer, chrcount, 0, 0, 0);
 			*i += 1;
 			break;
 		case 's':
