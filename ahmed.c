@@ -23,11 +23,12 @@ void printc(char *buffer, char arg, int *chrcountptr)
 void prints(va_list ap, char *buffer,
 		int *chrcountptr, int width, int precision, int flags)
 {
+	char *str = va_arg(ap, char *);
+	int i = 0;
+
 	UNUSED(width);
 	UNUSED(precision);
 	UNUSED(flags);
-	char *str = va_arg(ap, char *);
-	int i = 0;
 
 	if (str == NULL)
 	{
