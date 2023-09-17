@@ -1,7 +1,5 @@
 #include "main.h"
 
-
-
 /**
  * choosefn - choosest the fn to be used  to print
  * @ap: variadic list
