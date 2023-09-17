@@ -7,18 +7,21 @@
  * @chrcount: pointer to number of characters to print
  * @format: the format string
  * @i: the iterator
+ * @width: matloob odam
+ * @precision: matloob odam
+ * @flag: odam bardo
  */
 void choosefn(va_list ap, char *buffer, int *chrcount,
-		const char *format, int *i)
+		const char *format, int *i, int width, int precision, int flag)
 {
 	switch (format[*i])
 	{
 		case 'c':
-			printc(ap, buffer, chrcount, 0, 0, 0);
+			printc(ap, buffer, chrcount, width, precision, flag);
 			*i += 1;
 			break;
 		case 's':
-			prints(ap, buffer, chrcount, 0, 0, 0);
+			prints(ap, buffer, chrcount, width, precision, flag);
 			*i += 1;
 			break;
 		case '%':
@@ -37,6 +40,7 @@ void choosefn(va_list ap, char *buffer, int *chrcount,
 int _printf(const char *format, ...)
 {
 	int i = 0, chrcount = 0;
+	int flags, width, precision, size = 0;
 	va_list ap;
 	char buffer[1024];
 
@@ -48,7 +52,7 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			choosefn(ap, buffer, &chrcount, format, &i);
+			choosefn(ap, buffer, &chrcount, format, &i, width, precision, flag);
 		}
 		else
 		{
