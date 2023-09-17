@@ -8,8 +8,8 @@
  */
 void printc(char *buffer, char arg, int *chrcountptr)
 {
-	buffer[*chrcountptr] = arg;
-	*chrcountptr += 1;
+	//buffer[*chrcountptr] = arg;
+	//*chrcountptr += 1;
 }
 /**
  * prints - used to print a string
