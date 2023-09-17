@@ -43,6 +43,7 @@ int _printf(const char *format, ...)
 			chrcount++;
 		}
 	}
+	buffer[chrcount] = '\0';
 	write(1, buffer, chrcount);
 	va_end(ap);
 	return (chrcount);
