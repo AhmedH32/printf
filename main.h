@@ -10,7 +10,7 @@
 
 
 void choosefn(va_list ap, char *buffer,
-		int *chrcount, const char *format, int *i
+		int *chrcount, const char *format, int *i,
 		int width, int precision, int flag);
 int _printf(const char *format, ...);
 void printc(va_list ap, char *buffer,
