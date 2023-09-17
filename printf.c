@@ -42,9 +42,9 @@ int _printf(const char *format, ...)
 	va_list ap;
 	char buffer[1024];
 
-	va_start(ap, format);
 	if (format == NULL)
 		return (-1);
+	va_start(ap, format);
 	while (format[i])
 	{
 		if (format[i] == '%')
