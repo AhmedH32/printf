@@ -9,7 +9,7 @@
  * @i: the iterator
  * @width: matloob odam
  * @precision: matloob odam
- * @flag: odam bardo
+ * @flags: odam bardo
  */
 void choosefn(va_list ap, char *buffer, int *chrcount,
 		const char *format, int *i, int width, int precision, int flags)
