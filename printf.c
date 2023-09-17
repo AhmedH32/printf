@@ -1,5 +1,36 @@
 #include "main.h"
 
+
+
+/**
+ * choosefn - choosest the fn to be used  to print
+ * @ap: variadic list
+ * @buffer: the buffer where we store the characters
+ * @chrcount: pointer to number of characters to print
+ * @format: the format string
+ * @i: the iterator
+ */
+void choosefn(va_list ap, char *buffer, int *chrcount,
+		const char *format, int *i)
+{
+	switch (format[*i])
+	{
+		case 'c':
+			printc(buffer, va_arg(ap, int), chrcount);
+			*i += 1;
+			break;
+		case 's':
+			prints(buffer, va_arg(ap, char *), chrcount);
+			*i += 1;
+			break;
+		case '%':
+			buffer[*chrcount] = format[*i];
+			*chrcount += 1;
+			*i += 1;
+			break;
+	}
+
+}
 /**
  * _printf - prints the arguments it is called with using a format string
  * @format: the format string
@@ -19,22 +50,7 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			switch (format[i])
-			{
-				case 'c':
-					printc(buffer, va_arg(ap, int), &chrcount);
-					i++;
-					break;
-				case 's':
-					prints(buffer, va_arg(ap, char *), &chrcount);
-					i++;
-					break;
-				case '%':
-					buffer[chrcount] = format[i];
-					chrcount++;
-					i++;
-					break;
-			}
+			choosefn(ap, buffer, &chrcount, format, &i);
 		}
 		else
 		{
