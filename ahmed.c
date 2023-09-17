@@ -14,16 +14,21 @@ void printc(char *buffer, char arg, int *chrcountptr)
 /**
  * prints - used to print a string
  * @buffer: the buffer where the string will be stored
- * @arg: the point to the string to print
+ * @ap: va_list
  * @chrcountptr: pointer to the number of characters
  */
-void prints(char *buffer, char *arg, int *chrcountptr)
+void prints(va_list ap, char *buffer, int *chrcountptr)
 {
+	char *str = va_arg(ap, char *);
 	int i = 0;
 
-	while (arg[i])
+	if (str == NULL)
 	{
-		buffer[*chrcountptr] = arg[i];
+		str = "(null)";
+	}
+	while (str[i])
+	{
+		buffer[*chrcountptr] = str[i];
 		i++;
 		*chrcountptr += 1;
 	}

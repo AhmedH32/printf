@@ -20,7 +20,7 @@ void choosefn(va_list ap, char *buffer, int *chrcount,
 			*i += 1;
 			break;
 		case 's':
-			prints(buffer, va_arg(ap, char *), chrcount);
+			prints(ap, buffer, chrcount);
 			*i += 1;
 			break;
 		case '%':
