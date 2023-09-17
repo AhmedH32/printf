@@ -3,12 +3,22 @@
 /**
  * printc - used to print a character
  * @buffer: the buffer where the char will be stored
- * @arg: the char to print
+ * @ap: va_list
  * @chrcountptr: pointer to the number of characters
+ * @width: width
+ * @precision: precision
+ * @flags: flags
  */
-void printc(char *buffer, char arg, int *chrcountptr)
+void printc(va_list ap, char *buffer,
+		int *chrcountptr, int width, int precision, int flags)
 {
-	buffer[*chrcountptr] = arg;
+	char c = va_arg(ap, int);
+
+	UNUSED(width);
+	UNUSED(precision);
+	UNUSED(flags);
+
+	buffer[*chrcountptr] = c;
 	*chrcountptr += 1;
 }
 /**
