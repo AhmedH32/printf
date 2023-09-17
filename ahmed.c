@@ -13,11 +13,15 @@ void printc(char *buffer, char arg, int *chrcountptr)
 }
 /**
  * prints - used to print a string
- * @buffer: the buffer where the string will be stored
  * @ap: va_list
+ * @precision: precision
+ * @flags: flags total
+ * @buffer: the buffer where the string will be stored
+ * @width: width
  * @chrcountptr: pointer to the number of characters
  */
-void prints(va_list ap, char *buffer, int *chrcountptr)
+void prints(va_list ap, char *buffer,
+		int *chrcountptr, int width, int precision, int flags)
 {
 	char *str = va_arg(ap, char *);
 	int i = 0;
