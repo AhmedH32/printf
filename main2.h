@@ -10,7 +10,7 @@
 #define OUTPUT_BUF_SIZE 1024
 #define BUF_FLUSH -1
 
-#define PARAMS_INIT {0, 0, 0, 0, 0, 0, 0. 0, 0, 0}
+#define PARAMS_INIT {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 
 #define CONVERT_LOWERCASE 1
 #define CONVERT_UNSIGNED 2
@@ -90,7 +90,7 @@ int print_binary(va_list ap, params_t *params);
 int print_octal(va_list ap, params_t *params);
 
 /* simple_printers.c module */
-int print_from_to(char *start, cahr *stop, char *except);
+int print_from_to(char *start, char *stop, char *except);
 int print_rev(va_list ap, params_t *params);
 int print_rot13(va_list ap, params_t *params);
 
@@ -99,7 +99,7 @@ int _isdigit(int c);
 int _strlen(char *s);
 int print_number(char *str, params_t *params);
 int print_number_right_shift(char *str, params_t *params);
-int print_number_left_shift(char 8str, params_t *params);
+int print_number_left_shift(char *str, params_t *params);
 
 /* params.c module */
 void init_params(params_t *params, va_list ap);
